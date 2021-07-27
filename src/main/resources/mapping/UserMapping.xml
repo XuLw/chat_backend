@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.chat.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.chat.entity.User">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+    </resultMap>
+
+    <resultMap id="BaseResultMap1" type="com.example.chat.entity.ReLa">
+        <result column="id1" jdbcType="VARCHAR" property="id1"/>
+        <result column="id2" jdbcType="VARCHAR" property="id2"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="create_date"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="username1" jdbcType="VARCHAR" property="username1"/>
+        <result column="username2" jdbcType="VARCHAR" property="username2"/>
+    </resultMap>
+
+    <select id="getById" resultType="com.example.chat.entity.User">
+        select * from tb_user where id = #{id}
+    </select>
+
+    <select id="getFriendsById" resultType="com.example.chat.entity.ReLa">
+        select * from tb_rela where id1 = #{id} or id2 = #{id}
+    </select>
+
+</mapper>
